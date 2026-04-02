@@ -6,7 +6,7 @@ from plotly.subplots import make_subplots
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("Road_Accident_Data.csv")
+df = pd.read_csv("https://github.com/k-shashank10/road_accidents/blob/main/Road%20Accident%20Data.csv")
 # ─── Page Config ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Road Accident Dashboard",
