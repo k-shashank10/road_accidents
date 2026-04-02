@@ -4,7 +4,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import numpy as np
+import matplotlib.pyplot as plt
 
+df = pd.read_csv("Road_Accident_Data.csv")
 # ─── Page Config ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Road Accident Dashboard",
