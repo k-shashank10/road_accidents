@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.title("🚦 Road Accident Data Dashboard")
+st.title("🚦 Road Accident Geospatial Dashboard")
 
 # Load the dataset
 @st.cache_data
@@ -34,13 +34,12 @@ if "Accident_Severity" in df.columns:
     ax.set_ylabel("Number of Accidents")
     st.pyplot(fig)
 
-# Accidents by location (if column exists)
-if "Location" in df.columns:
-    st.subheader("Top Accident Locations")
-    top_locations = df["Location"].value_counts().head(10)
-    st.bar_chart(top_locations)
+# Geospatial visualization
+if {"Latitude", "Longitude"}.issubset(df.columns):
+    st.subheader("Accident Hotspots Map")
+    st.map(df[["Latitude", "Longitude"]])
 
-# Time of day analysis (if column exists)
+# Time of day analysis
 if "Time" in df.columns:
     st.subheader("Accidents by Time of Day")
     df["Hour"] = pd.to_datetime(df["Time"], errors="coerce").dt.hour
